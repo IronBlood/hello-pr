@@ -23,3 +23,8 @@ jobs:
             -H "Accept: application/vnd.github+json" \
             "$GITHUB_API_URL/repos/$GITHUB_REPOSITORY/issues/$PR_NUMBER/comments" \
             -d '{"body":"helloworld"}'
+
+      - name: Post Helloword via reusable action
+        uses: IronBlood/hello-pr-action@v1
+        with:
+          github_token: ${{ github.token }}
