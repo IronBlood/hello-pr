@@ -24,7 +24,10 @@ jobs:
             "$GITHUB_API_URL/repos/$GITHUB_REPOSITORY/issues/$PR_NUMBER/comments" \
             -d '{"body":"helloworld"}'
 
-      - name: Post Helloword via reusable action
-        uses: IronBlood/hello-pr-action@v1
+      - name: Summary with gemini
+        uses: IronBlood/gemini-pr-summary-action@v0.1.0
         with:
           github_token: ${{ github.token }}
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_MODEL: gemini-2.0-flash
